@@ -21,7 +21,7 @@ int	ft_toupper(int c)
 	return (c);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	a;
 
@@ -30,3 +30,4 @@ int	main(void)
 	printf("La letra en mayúscula es: %c\n", ft_toupper(a));
 	return (0);
 }
+*/

@@ -25,7 +25,7 @@ char	*ft_strchr(const char *str, int c)
 		return ((char *)str);
 	return (NULL);
 }
-
+/*
 int	main(void)
 {
 	const char	str[] = "Hola muy buenas";
@@ -36,3 +36,4 @@ int	main(void)
 
 	return (0);
 }
+*/

@@ -33,7 +33,7 @@ int	ft_memcmp(const void *str1, const void *str2, size_t n)
 	}
 	return (0);
 }
-
+/*
 int main(void)
 {
     char strd[50] = "ayudaaaaaaaa bunas noches";
@@ -42,3 +42,4 @@ int main(void)
     printf("\nEl mio(): %d\n", ft_memcmp(strd, strs, 4));
     printf("El bueno(): %d", memcmp(strd, strs, 4));
 }
+*/

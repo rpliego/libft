@@ -20,7 +20,7 @@ int	ft_toupper(int c)
 	}
 	return (c);
 }
-
+/*
 int	main(void)
 {
 	char	a;
@@ -30,3 +30,4 @@ int	main(void)
 	printf("La letra en minuscula es: %c\n", ft_toupper(a));
 	return (0);
 }
+*/
