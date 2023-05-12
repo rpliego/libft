@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpliego <rpliego@student.42barcelo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 19:17:57 by rpliego           #+#    #+#             */
-/*   Updated: 2023/05/02 19:22:49 by rpliego          ###   ########.fr       */
+/*   Created: 2023/05/12 15:17:40 by rpliego           #+#    #+#             */
+/*   Updated: 2023/05/12 15:17:42 by rpliego          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int i)
+char	*ft_strdup(const char *str)
 {
-	if ((i >= 00) && (i <= 127))
-		return (1);
-	return (0);
-}
+	char	*fra;
+	size_t	c;
 
-// #include <ctype.h>
+	c = 0;
+	fra = ft_calloc(sizeof(char), ft_strlen(str) + 1);
+	if (fra == NULL)
+		return (NULL);
+	while (str[c])
+	{
+		fra[c] = str[c];
+		c++;
+	}
+	return (fra);
+}
 // #include <stdio.h>
 
 // int	main(void)
 // {
-// 	char	i;
+// 	char	str[] = "holaa";
+// 	char	*res;
 
-// 	i = 127;
-// 	printf("%d", isascii(i));
-// 	printf("%d", ft_isascii(i));
-// 	return (0);
+// 	res = ft_strdup(str);
+// 	printf("%s", res);
 // }
