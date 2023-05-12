@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "libft.h"
 
 void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
@@ -22,22 +23,30 @@ void	*ft_memmove(void *str1, const void *str2, size_t n)
 	cstr1 = (char *)str1;
 	cstr2 = (char *)str2;
 	l = 0;
-	while (l <= n)
+	if (str1 < str2)
 	{
-		cstr1[l] = cstr2[l];
-		l++;
+		while (l < n)
+		{
+			cstr1[l] = cstr2[l];
+			l++;
+		}
 	}
-	while (cstr1[l])
-		l++;
+	else if (str1 > str2)
+	{
+		while (n > l)
+		{
+			cstr1[n - 1] = cstr2[n - 1];
+			n--;
+		}
+	}
 	return (cstr1);
 }
-/*
-int main(void)
-{
-    char strd[50] = "Ayudaaaaaaaa bunas noches";
-	char strs[50] = "el nuevoo";
 
-    printf("\nEl mio(): %s\n", ft_memmove(strd, strs, 1));
-    printf("El bueno(): %s", memmove(strd, strs, 1));
-}
-*/
+// int	main(void)
+// {
+//     char strd[50] = "Ayud";
+// 	char strs[50] = "el nuevoo";
+
+//     printf("El mio(): %s\n", ft_memmove(strd, strs, 7));
+//     printf("El bueno(): %s\n", memmove(strd, strs, 7));
+// }

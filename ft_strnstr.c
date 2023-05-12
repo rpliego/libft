@@ -15,38 +15,37 @@
 #include <string.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
-{
-	int		hi;
-	int		ni;
-	size_t	s;
-	char	*out;
+{	
+	size_t	i;
+	size_t	aux;
 
-	out = (char *)haystack;
-	hi = 0;
-	s = 0;
-	if (*needle == '\0')
-		return (out);
-	while (out[hi] && s <= len)
+	aux = 0;
+	i = 0;
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	while (haystack[i])
 	{
-		ni = 0;
-		while (out[hi + ni] == needle[ni] && out[hi + ni])
-		{
-			if (out[hi] == needle[ni])
-				return (&out[hi]);
-			ni++;
+		aux = 0;
+		while (haystack[i + aux] == needle[aux] && i + aux < len)
+		{	
+			if (haystack[i + aux] == '\0' && needle[aux] == '\0')
+				return ((char *)&haystack[i]);
+		aux++;
 		}
-		hi++;
-		s++;
+		if (needle[aux] == '\0')
+		{
+			return ((char *)&haystack[i]);
+		}
+		i++;
 	}
 	return (NULL);
 }
 
-// int main (void) 
+// int	main(void)
 // {
-//    const char haystack[20] = "TutorialsPoint";
-//    const char needle[10] = "r";
+// 	char	stri[] = "the cake is a lie !\0I'm hidden lol\r\n";
+// 	char	stri2[] = "th er";
 
-//    printf("El mio: %s\n", ft_strnstr(haystack, needle, 0));
-//    printf("El bueno: %s\n", strnstr(haystack, needle, 0));
-//    return(0);
+// 	printf("%s\n", strnstr(stri, stri2, 7));
+// 	printf("%s\n", ft_strnstr(stri2, stri, 0));
 // }

@@ -15,15 +15,15 @@
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
-	char		*cstr;
-	size_t		i;
+	unsigned char		*cstr;
+	size_t				i;
 
-	cstr = (char *)str;
+	cstr = (unsigned char *)str;
 	i = 0;
-	while (*cstr && i <= n)
+	while (i < n)
 	{
-		if (*cstr == c)
-			return ((void *)cstr);
+		if (*cstr == (unsigned char )c)
+			return ((void *)&cstr[0]);
 		cstr++;
 		i++;
 	}
@@ -32,10 +32,10 @@ void	*ft_memchr(const void *str, int c, size_t n)
 
 // int main(void)
 // {
-//     char strd[50] = "Ayudaaaaaaaa bunas noches";
+//     char *strd = "/|\x12\xff\x09\x42\2002\42|\\";
 // 	int c;
 
-// 	c = 'd';
-//    	printf("El mio(): %s\n", ft_memchr(strd, c, 4));
-//     printf("El bueno(): %s", memchr(strd, c, 4));
+// 	c = '\200';
+//    	printf("El mio(): %s\n", ft_memchr(strd, c, 10));
+//     printf("El bueno(): %s", memchr(strd, c, 10));
 // }

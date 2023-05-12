@@ -17,7 +17,7 @@ char	*ft_strchr(const char *str, int c)
 {
 	while (*str)
 	{
-		if (*str == c)
+		if (*str == (char )c)
 			return ((char *)str);
 		str++;
 	}
@@ -25,15 +25,14 @@ char	*ft_strchr(const char *str, int c)
 		return ((char *)str);
 	return (NULL);
 }
-/*
-int	main(void)
-{
-	const char	str[] = "Hola muy buenas";
-	const char	ch = 'a';
 
-	printf("El bueno: %s\n", strchr(str, ch));
-	printf("El mio: %s\n", ft_strchr(str, ch));
+// int	main(void)
+// {
+// 	const char	str[] = "tripouille";
+// 	const char	ch = 't';
 
-	return (0);
-}
-*/
+// 	printf("El bueno: %s\n", strchr(str, ch + 256));
+// 	printf("El mio: %s\n", ft_strchr(str, ch + 256));
+
+// 	return (0);
+// }

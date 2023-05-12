@@ -20,10 +20,12 @@ char	*ft_strrchr(const char	*str, int c)
 	ret = NULL;
 	while (*str != '\0')
 	{
-		if (*str == c)
+		if (*str == (char )c)
 			ret = str;
 		str++;
 	}
+	if (c == '\0')
+		return ((char *)str);
 	return ((char *)ret);
 }
 

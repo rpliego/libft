@@ -10,23 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(char i)
+int	ft_isascii(int i)
 {
 	if ((i >= 00) && (i <= 127))
 		return (1);
 	return (0);
 }
-/*
-#include <ctype.h>
-#include <stdio.h>
 
-int	main(void)
-{
-	char	i;
+// #include <ctype.h>
+// #include <stdio.h>
 
-	i = 133;
-	printf("%d", isascii(i));
-	printf("%d", ft_isascii(i));
-	return (0);
-}
-*/
+// int	main(void)
+// {
+// 	char	i;
+
+// 	i = 127;
+// 	printf("%d", isascii(i));
+// 	printf("%d", ft_isascii(i));
+// 	return (0);
+// }

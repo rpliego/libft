@@ -22,6 +22,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	cdest = (char *)dest;
 	csrc = (char *)src;
 	s = 0;
+	if (!cdest && !csrc)
+	{
+		return (NULL);
+	}
 	while (s < n)
 	{
 		cdest[s] = csrc[s];
@@ -29,13 +33,12 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (cdest);
 }
-/*
-int main(void)
-{
-    char strd[50] = "Ayudaaaaaaaa bunas noches";
-	char strs[50] = "el nuevoo";
 
-    printf("\nEl mio(): %s\n", ft_memcpy(strd, strs, 4));
-    printf("El bueno(): %s", memcpy(strd, strs, 4));
-}
-*/
+// int main(void)
+// {
+//     char strd[50] = "";
+// 	char strs[50] = "";
+
+//     printf("\nEl mio(): %s\n", ft_memcpy(strd, strs, 0));
+//     printf("El bueno(): %s", memcpy(((void *)0), ((void *)0), 0));
+// }

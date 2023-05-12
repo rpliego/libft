@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 int	ft_atoi(const char *str)
 {
 	int	a;
@@ -27,6 +29,8 @@ int	ft_atoi(const char *str)
 		count = -1;
 		a++;
 	}
+	else if (str[a] == '+')
+		a++;
 	while (str[a] <= '9' && str[a] >= '0')
 	{
 		num = num * 10 + str[a] - '0';
@@ -43,10 +47,10 @@ int	ft_atoi(const char *str)
 // {
 //    char str[20];
 
-//    strcpy(str, "--12");
+//    strcpy(str, "+12");
 //    printf("el bueno = %s, Int value = %d\n", str,atoi(str));
 
-//    strcpy(str, "--12");
+//    strcpy(str, "+12");
 //    printf("El mio = %s, Int value = %d\n", str, ft_atoi(str));
 
 //    return(0);

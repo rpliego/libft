@@ -13,28 +13,30 @@
 #include <stdio.h>
 #include <string.h>
 
-int	ft_strncmp(const char *str1, const char *str2, size_t n)
+int	ft_strncmp(const char *st1, const char *st2, size_t n)
 {
-	unsigned int	i;
+	size_t			i;
 
 	i = 0;
-	while (str1[i] && str2[i] && i <= n)
+	if (n == 0)
+		return (0);
+	while (*st1 && *st2 && st1[i] && st2[i] && st1[i] == st2[i] && i < n -1)
 	{
-		if (str1[i] != str2[i])
+		if (st1[i] == st2[i] && st1[i] == '\0' && st2[i] == '\0')
 		{
-			return (str1[i] - str2[i]);
+			return (0);
 		}
 		i++;
 	}
-	return (0);
+	return ((unsigned char)st1[i] - (unsigned char)st2[i]);
 }
 
 // int	main(void)
 // {
-// 	char str1[15] = "Adc";
-// 	char str2[15] = "aBC";
+// 	char str1[] = "abcdef";
+// 	char str2[] = "abcdefghijklmnop";
 
-// 	printf("El bueno: %d\n", strncmp(str1, str2, 2));
-// 	printf("El mio: %d\n", ft_strncmp(str1, str2, 2));
+// 	printf("El bueno: %d\n", strncmp(str1, str2, 6));
+// 	printf("El mio: %d\n", ft_strncmp(str1, str2, 6));
 // 	return (0);
 // }
