@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -25,9 +24,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start >= lens)
 		return (ft_strdup(""));
-	if (len > lens)
+	if (lens - start < len)
 		len = lens - start;
-	x = (char *)malloc(len + 1);
+	x = (char *)malloc((unsigned int)len + 1);
 	if (!x)
 		return (NULL);
 	while (i < start)
