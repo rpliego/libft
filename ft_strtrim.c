@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpliego <rpliego@student.42barcelo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/14 22:14:29 by rpliego           #+#    #+#             */
-/*   Updated: 2023/05/14 22:14:30 by rpliego          ###   ########.fr       */
+/*   Created: 2023/05/15 10:58:49 by rpliego           #+#    #+#             */
+/*   Updated: 2023/05/15 10:58:52 by rpliego          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	if (n == -2147483648)
+	int		l_str;
+
+	if (!s1 || !set)
+		return (NULL);
+	while (*s1 && ft_strchr(set, *s1))
 	{
-		write (fd, "-2147483648", 11);
-		return ;
+		s1++;
 	}
-	if (n < 0)
-	{
-		n = n * (-1);
-		ft_putchar_fd('-', fd);
+	l_str = ft_strlen(s1);
+	while (l_str && ft_strrchr(set, s1[l_str]))
+	{	
+		l_str--;
 	}
-	if (n > 9)
-	{
-		ft_putnbr_fd((n / 10), fd);
-	}
-	ft_putchar_fd((n % 10 + 48), fd);
+	return (ft_substr(s1, 0, l_str + 1));
 }
 
-// int main(void)
+// #include <stdio.h>
+
+// int	main(void)
 // {
-// 	ft_putnbr_fd(8, 1);
+// 	char const *a = "abbaholaacaabba";
+// 	char const *b = "ab";
+
+// 	printf("El mio: %s\n", ft_strtrim(a, b));
 // }
