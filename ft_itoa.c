@@ -12,42 +12,73 @@
 
 #include "libft.h"
 
+char	*casos(int n, int *a)
+{
+	char	*out;
+
+	if (n == 0)
+	{
+		out = ft_strdup("0");
+		if (!out)
+		{
+			*a = 0;
+			return (NULL);
+		}
+		*a = 2;
+		return (out);
+	}
+	if (n == -2147483648)
+	{
+		out = ft_strdup("-2147483648");
+		if (!out)
+		{
+			*a = 0;
+			return (NULL);
+		}
+		*a = 2;
+		return (out);
+	}
+	return (NULL);
+}
+
+void	count(int n, int *len, int *neg, int *aux)
+{
+	*len = 0;
+	*neg = 0;
+	*aux = n;
+	if (n < 0)
+	{
+		n = n * -1;
+		*neg = 1;
+		*aux = -(*aux);
+	}
+	while (n > 0)
+	{
+		(*len)++;
+		n = n / 10;
+	}
+}
+
 char	*ft_itoa(int n)
 {
 	char	*out;
 	int		len;
 	int		neg;
 	int		aux;
+	int		a;
 
-	len = 0;
-	neg = 0;
-	aux = n;
-	if (n == 0)
-	{
-		out = malloc(2 * sizeof(char));
-		out[0] = '0';
-		out[1] = '\0';
+	a = 1;
+	out = casos(n, &a);
+	if (a != 1)
 		return (out);
-	}
-	if (n < 0)
-	{
-		n = n * -1;
-		neg = 1;
-		aux = -aux;
-	}
-	while (n > 0)
-	{
-		len++;
-		n = n / 10;
-	}
+	count(n, &len, &neg, &aux);
 	n = aux;
 	len = len + neg;
-	aux = len;
 	out = malloc((len + 1) * sizeof(char));
 	if (!out)
 		return (NULL);
 	out[len] = '\0';
-	while (len-- >= neg)
+	while (len--)
 	{
 		out[len] = (n % 10) + 48;
 		n = n / 10;
@@ -56,3 +87,15 @@ char	*ft_itoa(int n)
 			out[0] = '-';
 	return (out);
 }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	int		n;
+// 	char	*res;
+
+// 	n = -0;
+// 	res = ft_itoa(n);
+// 	printf("%s\n", res);
+// }

@@ -18,9 +18,7 @@ void	*ft_bzero(void *str, size_t l)
 
 	x = str;
 	while (l--)
-	{
-		*x++ = 0;
-	}
+		*x++ = '\0';
 	return (x);
 }
 /*
