@@ -20,9 +20,7 @@ size_t	ft_strlcpy(char *dest, char *src, unsigned int size)
 	temp = 0;
 	aux = 0;
 	while (src[temp] != '\0')
-	{
 		temp++;
-	}
 	if (size != '\0')
 	{
 		while (src[aux] != '\0' && aux < (size - 1))
