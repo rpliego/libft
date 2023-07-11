@@ -17,7 +17,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 	size_t	aux;
 
-	aux = 0;
 	i = 0;
 	if (needle[0] == '\0')
 		return ((char *)haystack);
@@ -39,11 +38,14 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return (NULL);
 }
 
+// #include <stdio.h>
+// #include <string.h>
+
 // int	main(void)
 // {
 // 	char	stri[] = "the cake is a lie !\0I'm hidden lol\r\n";
-// 	char	stri2[] = "th er";
+// 	char	stri2[] = "cake is a lie";
 
-// 	printf("%s\n", strnstr(stri, stri2, 7));
-// 	printf("%s\n", ft_strnstr(stri2, stri, 0));
+// 	//printf("%s\n", strnstr(stri2, stri, 10));
+// 	printf("%s\n", ft_strnstr(stri, stri2, 15));
 // }
